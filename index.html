@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Logout Button</title>
+  <script type="module">
+    // Import modul Firebase
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-app.js";
+    import { getAuth, signOut } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-auth.js";
+
+    // Konfigurasi Firebase
+    const firebaseConfig = {
+      apiKey: "AIzaSyDA1QCMJRWjOlFGUAMRWUiFG_xBJeYySRE",
+      authDomain: "sanuvara-web-2025.firebaseapp.com",
+      projectId: "sanuvara-web-2025",
+      storageBucket: "sanuvara-web-2025.appspot.com",
+      messagingSenderId: "252794209152",
+      appId: "1:252794209152:web:918ee11113d8aa9410b765",
+      measurementId: "G-C2Q36KTXGH"
+    };
+
+    // Inisialisasi Firebase
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+
+    // Fungsi logout
+    function handleLogout() {
+      signOut(auth)
+        .then(() => {
+          console.log("Berhasil logout");
+          // Arahkan ke halaman login
+          window.location.href = "https://sites.google.com/view/sanivara/heloo-im-sanivara";
+        })
+        .catch((error) => {
+          console.error("Gagal logout: ", error);
+          alert("Gagal logout. Silakan coba lagi.");
+        });
+    }
+  </script>
+</head>
+<body>
+  <!-- Tombol Log Out -->
+  <div style="text-align: center; margin-top: 20px;">
+    <button 
+      onclick="handleLogout()" 
+      style="padding: 10px 20px; background-color: #1E90FF; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 16px;"
+    >
+      Log Out
+    </button>
+  </div>
+</body>
+</html>
